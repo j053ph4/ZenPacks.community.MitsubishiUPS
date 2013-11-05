@@ -2,9 +2,6 @@
 <objects>
 <!-- ('', 'zport', 'dmd', 'Devices', 'Power', 'UPS', 'Mitsubishi') -->
 <object id='/zport/dmd/Devices/Power/UPS/Mitsubishi' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
-<property visible="True" type="string" id="zPythonClass" >
-ZenPacks.community.MitsubishiUPS.MitsubishiUPSDevice
-</property>
 <property visible="True" type="lines" id="zCollectorPlugins" >
 ['zenoss.snmp.NewDeviceMap', 'zenoss.snmp.DeviceMap', 'zenoss.snmp.APCDeviceMap', 'zenoss.snmp.PowerwareDeviceMap', 'MitsubishiUPSInputMap', 'MitsubishiUPSOutputMap', 'MitsubishiUPSBypassMap']
 </property>

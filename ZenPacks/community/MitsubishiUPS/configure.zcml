@@ -4,34 +4,36 @@
         xmlns:browser="http://namespaces.zope.org/browser"
         xmlns:zcml="http://namespaces.zope.org/zcml">
         <configure zcml:condition="installed Products.Zuul">
-        
-        	<include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
-        	<!-- Global Info -->
+
+            <include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+
+
+            <!-- ZenPack Info -->
 
             <browser:directRouter
                 name="MitsubishiUPS_router"
                 for="*"
-                class=".routers.MitsubishiUPSRouter"
+                class="ZenPacks.community.MitsubishiUPS.routers.MitsubishiUPSRouter"
                 namespace="Zenoss.remote"
                 permission="zenoss.View"
             />
     
             <adapter
                 name="MitsubishiUPSAdapter"
-                provides=".interfaces.IMitsubishiUPSFacade"
+                provides="ZenPacks.community.MitsubishiUPS.interfaces.IMitsubishiUPSFacade"
                 for="*"
-                factory=".facades.MitsubishiUPSFacade"
+                factory="ZenPacks.community.MitsubishiUPS.facades.MitsubishiUPSFacade"
             />
                 
             <browser:resourceDirectory
                     name="MitsubishiUPS"
                     directory="resources"
             />
-                
+
             <!-- Component Info -->
-            <adapter factory=".info.MitsubishiUPSBypassInfo"
-                for=".MitsubishiUPSBypass.MitsubishiUPSBypass"
-                provides=".interfaces.IMitsubishiUPSBypassInfo"
+            <adapter factory="ZenPacks.community.MitsubishiUPS.info.MitsubishiUPSBypassInfo"
+                for="ZenPacks.community.MitsubishiUPS.MitsubishiUPSBypass.MitsubishiUPSBypass"
+                provides="ZenPacks.community.MitsubishiUPS.interfaces.IMitsubishiUPSBypassInfo"
             />
     
             <browser:viewlet
@@ -43,8 +45,51 @@
                 permission="zope2.Public"
             />
 
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.MitsubishiUPSBypassgetEventClassesVocabulary"
+                name="MitsubishiUPSBypassgetEventClasses"
+            />
 
-        
+            <!-- Component Info -->
+            <adapter factory="ZenPacks.community.MitsubishiUPS.info.MitsubishiUPSInputInfo"
+                for="ZenPacks.community.MitsubishiUPS.MitsubishiUPSInput.MitsubishiUPSInput"
+                provides="ZenPacks.community.MitsubishiUPS.interfaces.IMitsubishiUPSInputInfo"
+            />
+    
+            <browser:viewlet
+                name="js-MitsubishiUPSInput"
+                paths="/++resource++MitsubishiUPS/mitsubishiupsinput.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.MitsubishiUPSInputgetEventClassesVocabulary"
+                name="MitsubishiUPSInputgetEventClasses"
+            />
+
+            <!-- Component Info -->
+            <adapter factory="ZenPacks.community.MitsubishiUPS.info.MitsubishiUPSOutputInfo"
+                for="ZenPacks.community.MitsubishiUPS.MitsubishiUPSOutput.MitsubishiUPSOutput"
+                provides="ZenPacks.community.MitsubishiUPS.interfaces.IMitsubishiUPSOutputInfo"
+            />
+    
+            <browser:viewlet
+                name="js-MitsubishiUPSOutput"
+                paths="/++resource++MitsubishiUPS/mitsubishiupsoutput.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.MitsubishiUPSOutputgetEventClassesVocabulary"
+                name="MitsubishiUPSOutputgetEventClasses"
+            />
+
         </configure>
     </configure>
 

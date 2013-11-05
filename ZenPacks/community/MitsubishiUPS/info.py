@@ -1,13 +1,21 @@
-from zope.interface import implements
-from Products.Zuul.infos import ProxyProperty
-from Products.Zuul.infos.component import ComponentInfo
-from ZenPacks.community.MitsubishiUPS.interfaces import *
+from ZenPacks.community.ConstructionKit.ClassHelper import *
 
-'''
-args:  zenpack,compInfo,compInterface,infoProperties
-'''
+def MitsubishiUPSBypassgetEventClassesVocabulary(context):
+    return SimpleVocabulary.fromValues(context.listgetEventClasses())
 
-class MitsubishiUPSBypassInfo(ComponentInfo):
-    implements( IMitsubishiUPSBypassInfo )
+class MitsubishiUPSBypassInfo(ClassHelper.MitsubishiUPSBypassInfo):
+    ''''''
+
+def MitsubishiUPSInputgetEventClassesVocabulary(context):
+    return SimpleVocabulary.fromValues(context.listgetEventClasses())
+
+class MitsubishiUPSInputInfo(ClassHelper.MitsubishiUPSInputInfo):
+    ''''''
+
+def MitsubishiUPSOutputgetEventClassesVocabulary(context):
+    return SimpleVocabulary.fromValues(context.listgetEventClasses())
+
+class MitsubishiUPSOutputInfo(ClassHelper.MitsubishiUPSOutputInfo):
+    ''''''
 
 

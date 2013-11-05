@@ -27,7 +27,7 @@ class MitsubishiUPSOutputMap(SnmpPlugin):
         for key,value in snmptable.items():
             value['snmpindex'] = key
             om = self.objectMap(value)
-            name = "%s_%s" % (self.baseid, name)
+            name = "%s_%s" % (self.baseid, str(key))
             om.id = self.prepId(name)
             om.title = name
             rm.append(om)
