@@ -2,6 +2,13 @@ from Products.DataCollector.plugins.CollectorPlugin import SnmpPlugin, GetMap, G
 from Products.DataCollector.plugins.DataMaps import ObjectMap
 from ZenPacks.community.MitsubishiUPS.Definition import *
 
+__doc__ = """MitsubishiUPSBypassMap
+
+MitsubishiUPSBypassMap detects Mitsubishi UPS Bypasses
+
+"""
+
+
 class MitsubishiUPSBypassMap(SnmpPlugin):
     ''''''
     compname = "os"

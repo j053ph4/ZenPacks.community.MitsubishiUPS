@@ -2,9 +2,9 @@ from ZenPacks.community.ConstructionKit.BasicDefinition import *
 from ZenPacks.community.ConstructionKit.Construct import *
 
 BASE = "MitsubishiUPS"
-VERSION = Version(1, 1, 0)
+VERSION = Version(1, 1, 1)
 
-DATA = {
+DefinitionInput = type('DefinitionInput', (BasicDefinition,), {
         'version' : VERSION,
         'zenpackbase': BASE,
         'component' : 'MitsubishiUPSInput',
@@ -12,11 +12,12 @@ DATA = {
                            'singular': 'Input',
                            'plural': 'Inputs',
                            },
+        'componentMethods' : [],                                    
         }
-DefinitionInput = type('DefinitionInput', (BasicDefinition,), DATA)
+)
 
 
-DATA = {
+DefinitionBypass = type('DefinitionBypass', (BasicDefinition,), {
         'version' : VERSION,
         'zenpackbase': BASE,
         'component' : 'MitsubishiUPSBypass',
@@ -24,10 +25,11 @@ DATA = {
                            'singular': 'Bypass',
                            'plural': 'Bypasses',
                            },
+        'componentMethods' : [],                               
         }
-DefinitionBypass = type('DefinitionBypass', (BasicDefinition,), DATA)
+)
 
-DATA = {
+DefinitionOutput = type('DefinitionOutput', (BasicDefinition,), {
         'version' : VERSION,
         'zenpackbase': BASE,
         'component' : 'MitsubishiUPSOutput',
@@ -35,7 +37,8 @@ DATA = {
                            'singular': 'Output',
                            'plural': 'Outputs',
                            },
+        'componentMethods' : [],                                               
         }
-DefinitionOutput = type('DefinitionOutput', (BasicDefinition,), DATA)
+)
 
 
